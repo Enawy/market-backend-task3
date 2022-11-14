@@ -8,13 +8,25 @@ class UserSerial(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CartSerial(serializers.ModelSerializer):
-    class Meta:
-        model = models.Cart
-        fields = '__all__'
-
-
 class ProductSerial(serializers.ModelSerializer):
     class Meta:
         model = models.Product
+        fields = '__all__'
+
+
+class CartSerial(serializers.ModelSerializer):
+    productview = ProductSerial(source='Product', read_only=True)
+
+    class Meta:
+        model = models.Cart
+        fields = [
+            'productview',
+            'owner',
+            'prod_name',
+            ]
+
+
+class CustLocalSerial(serializers.ModelSerializer):
+    class Meta:
+        model = models.UserLocation
         fields = '__all__'

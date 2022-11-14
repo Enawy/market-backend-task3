@@ -3,8 +3,10 @@ from cart import views
 
 
 urlpatterns = [
-    path('', views.CreateCart.as_view()),
-    path('<int:pk>', views.CartFull.as_view()),
+    path('cart/', views.CreateCart.as_view()),
+    path('cart/<int:pk>', views.CartFull.as_view()),
+    path('location/', views.CreateLocalCustomer.as_view()),
+    path('location/<int:pk>', views.LocalCustomerAPI.as_view()),
 ]
 
 

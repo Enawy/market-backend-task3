@@ -5,5 +5,5 @@ from cart import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cart/', include('cart.urls')),
+    path('', include('cart.urls')),
 ]
